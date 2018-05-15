@@ -18,7 +18,6 @@ class ImeSwitcher {
         mFields.clear()
         fields.forEach {
             it.mEditText.setImeActionLabel("", actionId)
-            it.mEditText.imeOptions = IME_ACTION_NEXT
             it.mEditText.setSingleLine()
             mFields.add(it)
             it.mEditText.setOnEditorActionListener(onEditorActionListener(fields, callback))
