@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.EditText
 import android.widget.TextView
-import thevoid.iam.imeswitcher.ImeSwitcher
-import thevoid.iam.imeswitcher.custom
-import thevoid.iam.imeswitcher.email
-import thevoid.iam.imeswitcher.simple
+import thevoid.iam.imeswitcher.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnImeActionListener {
+
+    lateinit var tv: TextView
+
+    override fun onImeAction() {
+        tv.text = "Done"
+    }
 
     private val imeSwitcher = ImeSwitcher()
 
@@ -23,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         val et5 = findViewById<EditText>(R.id.id5)
         val et6 = findViewById<EditText>(R.id.id6)
 
-        val tv = findViewById<TextView>(R.id.id7)
+        tv = findViewById(R.id.id7)
 
         imeSwitcher.onCreate(
                 email(et1),
@@ -31,8 +34,8 @@ class MainActivity : AppCompatActivity() {
                 simple(et3),
                 email(et4),
                 simple(et5),
-                custom(et6, { s -> isInt(s) })
-        ) { tv.text = "Done" }
+                custom(et6, { s -> isInt(s) }),
+                callback = this)
     }
 
     private fun isInt(s: CharSequence): Boolean {

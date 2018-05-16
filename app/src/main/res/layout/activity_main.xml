@@ -43,6 +43,7 @@
     <EditText
         android:hint="integer"
         android:id="@+id/id6"
+        android:imeOptions="actionNext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <TextView

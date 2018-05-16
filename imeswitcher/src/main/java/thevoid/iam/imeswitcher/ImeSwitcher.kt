@@ -7,19 +7,19 @@ import xyz.truenight.utils.Utils
 
 class ImeSwitcher {
 
-    fun onCreate(vararg fields: Field, callback: (() -> Unit)? = null) {
+    fun onCreate(vararg fields: Field, callback: OnImeActionListener? = null) {
         fields.forEach {
             it.mEditText.setSingleLine()
             it.mEditText.setOnEditorActionListener(onEditorActionListener(fields, callback))
         }
     }
 
-    private fun onEditorActionListener(fields: Array<out Field>, callback: (() -> Unit)?): TextView.OnEditorActionListener {
+    private fun onEditorActionListener(fields: Array<out Field>, callback: OnImeActionListener?): TextView.OnEditorActionListener {
         return TextView.OnEditorActionListener { v, actionId, _ ->
             // All fields correct
             if (actionId == IME_ACTION_NEXT && fields.all(Field::valid)) {
                 hideKeyboard(v)
-                callback?.let { it() }
+                callback?.onImeAction()
                 return@OnEditorActionListener true
             }
 
