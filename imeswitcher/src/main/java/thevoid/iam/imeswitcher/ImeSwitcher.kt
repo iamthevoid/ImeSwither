@@ -7,10 +7,23 @@ import xyz.truenight.utils.Utils
 
 class ImeSwitcher {
 
-    fun onCreate(vararg fields: Field, callback: OnImeActionListener? = null) {
+    fun onCreate(vararg fields: Field, imeListener: (() -> Unit)) {
+        val mutatedCallback : OnImeActionListener? = object : OnImeActionListener {
+            override fun onImeAction() {
+                imeListener.let { it() }
+            }
+        }
+        configureFields(fields, mutatedCallback)
+    }
+
+    fun onCreate(vararg fields: Field, imeListener: OnImeActionListener? = null) {
+        configureFields(fields, imeListener)
+    }
+
+    private fun configureFields(fields: Array<out Field>, imeListener: OnImeActionListener?) {
         fields.forEach {
             it.mEditText.setSingleLine()
-            it.mEditText.setOnEditorActionListener(onEditorActionListener(fields, callback))
+            it.mEditText.setOnEditorActionListener(onEditorActionListener(fields, imeListener))
         }
     }
 

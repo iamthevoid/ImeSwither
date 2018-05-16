@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity(), OnImeActionListener {
     lateinit var tv: TextView
 
     override fun onImeAction() {
-        tv.text = "Done"
+
     }
 
     private val imeSwitcher = ImeSwitcher()
@@ -32,10 +32,8 @@ class MainActivity : AppCompatActivity(), OnImeActionListener {
                 email(et1),
                 simple(et2),
                 simple(et3),
-                email(et4),
-                simple(et5),
-                custom(et6, { s -> isInt(s) }),
-                callback = this)
+                email(et4), simple(et5),
+                custom(et6, { s -> isInt(s) })) { tv.text = "Done" }
     }
 
     private fun isInt(s: CharSequence): Boolean {
