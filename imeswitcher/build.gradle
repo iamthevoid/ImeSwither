@@ -29,7 +29,7 @@ android {
 publish {
     groupId = 'thevoid.iam.imeswitcher'
     artifactId = 'imeswitcher'
-    publishVersion = '0.1.1'
+    publishVersion = '0.1.2'
     desc = 'Switch between edit texts with acition button'
     licences = ['Apache-2.0']
     uploadName = 'ImeSwitcher'
