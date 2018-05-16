@@ -11,31 +11,37 @@
         android:layout_height="wrap_content">
         <EditText
             android:id="@+id/id1"
+            android:hint="email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </android.support.design.widget.TextInputLayout>
 
     <EditText
+        android:hint="at least one symbol"
         android:id="@+id/id2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/id3"
+        android:hint="at least one symbol"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
+        android:hint="email"
         android:id="@+id/id4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
+        android:hint="at least one symbol"
         android:id="@+id/id5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
+        android:hint="integer"
         android:id="@+id/id6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

@@ -4,22 +4,12 @@ import android.view.inputmethod.EditorInfo.IME_ACTION_NEXT
 import android.widget.EditText
 import android.widget.TextView
 import xyz.truenight.utils.Utils
-import java.util.*
 
 class ImeSwitcher {
 
-    private val actionId = R.integer.ime_action_id
-
-    private val mFields: MutableList<Field> = ArrayList()
-    private var mCallback: (() -> Unit)? = null
-
     fun onCreate(vararg fields: Field, callback: (() -> Unit)? = null) {
-        this.mCallback = callback
-        mFields.clear()
         fields.forEach {
-            it.mEditText.setImeActionLabel("", actionId)
             it.mEditText.setSingleLine()
-            mFields.add(it)
             it.mEditText.setOnEditorActionListener(onEditorActionListener(fields, callback))
         }
     }
