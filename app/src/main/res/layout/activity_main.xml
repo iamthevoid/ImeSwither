@@ -24,13 +24,15 @@
 
     <EditText
         android:id="@+id/id3"
-        android:hint="at least one symbol"
+        android:inputType="textPassword"
+        android:hint="password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
         android:hint="email"
         android:id="@+id/id4"
+        android:inputType="textEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

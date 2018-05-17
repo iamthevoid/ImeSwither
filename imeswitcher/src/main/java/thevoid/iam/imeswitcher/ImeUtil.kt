@@ -3,6 +3,7 @@
 package thevoid.iam.imeswitcher
 
 import android.content.Context
+import android.text.InputType
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
@@ -36,5 +37,14 @@ fun hideKeyboard(view: View?) {
     val inputManager = view?.
             context?.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
     inputManager?.hideSoftInputFromWindow(view.windowToken, 0)
+}
 
+fun EditText.isPasswordInput() : Boolean {
+    return when {
+        InputType.TYPE_NUMBER_VARIATION_PASSWORD and inputType > 0 -> true
+        InputType.TYPE_TEXT_VARIATION_PASSWORD and inputType > 0 -> true
+        InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD and inputType > 0 -> true
+        InputType.TYPE_TEXT_VARIATION_WEB_PASSWORD and inputType > 0 -> true
+        else -> false
+    }
 }
