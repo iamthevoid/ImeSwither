@@ -25,6 +25,10 @@ fun simple(editText: EditText): ImeSwitcher.Field {
     return ImeSwitcher.SimpleField(editText)
 }
 
+fun allowEmpty(editText: EditText): ImeSwitcher.Field {
+    return ImeSwitcher.AllowEmptyField(editText)
+}
+
 fun custom(editText: EditText, validator: (CharSequence) -> Boolean): ImeSwitcher.Field {
     return object : ImeSwitcher.Field(editText) {
         override fun check(charSequence: CharSequence): Boolean {

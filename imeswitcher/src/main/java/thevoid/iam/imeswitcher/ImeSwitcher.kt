@@ -76,4 +76,11 @@ class ImeSwitcher {
             return !Utils.isEmpty(charSequence)
         }
     }
+
+    class AllowEmptyField(editText: EditText) : Field(editText) {
+
+        override fun check(charSequence: CharSequence): Boolean {
+            return true
+        }
+    }
 }
